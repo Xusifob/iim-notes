@@ -1,0 +1,95 @@
+{% extends '::base.html.twig' %}
+
+    {% block stylesheets %}
+        <link href="https://fonts.googleapis.com/cssbc32.css?family=Open+Sans:400,300,600,700&amp;subset=all" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('bundles/app/assets/global/plugins/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('bundles/app/assets/global/plugins/simple-line-icons/simple-line-icons.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('bundles/app/assets/global/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('bundles/app/assets/global/plugins/uniform/css/uniform.default.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('bundles/app/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css') }}" rel="stylesheet" type="text/css" />
+
+        <link href="{{ asset('bundles/app/assets/global/css/components.min.css')}}" rel="stylesheet" id="style_components" type="text/css" />
+        <link href="{{ asset('bundles/app/assets/global/css/plugins.min.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('bundles/app/assets/global/css/plugins.min.css')}}" rel="stylesheet" type="text/css" />
+
+        <link href="{{ asset('bundles/app/assets/layouts/layout2/css/layout.min.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('bundles/app/assets/layouts/layout2/css/themes/blue.min.css')}}" rel="stylesheet" type="text/css" id="style_color" />
+        <link href="{{ asset('bundles/app/assets/layouts/layout2/css/custom.min.css')}}" rel="stylesheet" type="text/css" />
+
+    {% endblock %}
+
+{% block navbar %}
+    <div class="page-header navbar navbar-fixed-top">
+        <!-- BEGIN HEADER INNER -->
+        <div class="page-header-inner ">
+            <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+            <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse"> </a>
+            <!-- END RESPONSIVE MENU TOGGLER -->
+            <!-- BEGIN PAGE ACTIONS -->
+            <!-- DOC: Remove "hide" class to enable the page header actions -->
+            <div class="page-actions">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-circle btn-outline red dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                        <span class="hidden-sm hidden-xs">New</span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <a href="{{ path('admin_add') }}">
+                                <i class="icon-users"></i>New Admin</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('student_add') }}">
+                                <i class="icon-users"></i>New Student</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('grade_add') }}">
+                                <i class="icon-tag"></i>New Grade</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('grade_add') }}">
+                                <i class="icon-graduation"></i>New Exam</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- END PAGE ACTIONS -->
+            <!-- BEGIN PAGE TOP -->
+            <div class="page-top">
+                <!-- BEGIN HEADER SEARCH BOX -->
+                <!-- BEGIN TOP NAVIGATION MENU -->
+                <div class="top-menu">
+                    <ul class="nav navbar-nav pull-right">
+                        <li class="dropdown dropdown-user">
+                            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                <span class="username username-hide-on-mobile"> Bastien </span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-default">
+                                <li>
+                                    <a href="{{ path('admin_list') }}">
+                                        <i class="icon-users"></i>List Admin</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('student_list') }}">
+                                        <i class="icon-users"></i>List Student</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('grade_list') }}">
+                                        <i class="icon-tag"></i>List Grade</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('grade_list') }}">
+                                        <i class="icon-graduation"></i>List Exam</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <!-- END TOP NAVIGATION MENU -->
+            </div>
+            <!-- END PAGE TOP -->
+        </div>
+        <!-- END HEADER INNER -->
+    </div>
+{% endblock %}
+{% block body %}
+{% endblock %}

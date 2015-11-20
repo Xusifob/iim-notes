@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 /**
  * Class GradeController
  * @package AppBundle\Controller
- * @Route("/grade")
+ * @Route("/admin/grade")
  */
 class GradeController extends Controller
 {

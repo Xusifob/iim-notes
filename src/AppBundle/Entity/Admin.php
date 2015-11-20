@@ -3,6 +3,8 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use FOS\UserBundle\Model\User as BaseUser;
+
 
 /**
  * Admin
@@ -10,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="AppBundle\Entity\AdminRepository")
  */
-class Admin
+class Admin extends BaseUser
 {
     /**
      * @var integer
@@ -19,29 +21,30 @@ class Admin
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
+
 
     /**
      * @var string
      *
-     * @ORM\Column(name="email", type="string", length=255)
+     * @ORM\Column(name="firstName", type="string", length=255,nullable=true)
      */
-    private $email;
+    protected $firstName;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="firstName", type="string", length=255)
+     * @ORM\Column(name="lastName", type="string", length=255,nullable=true)
      */
-    private $firstName;
+    protected $lastName;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="lastName", type="string", length=255)
-     */
-    private $lastName;
 
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->addRole('ROLE_ADMIN');
+    }
 
     /**
      * Get id

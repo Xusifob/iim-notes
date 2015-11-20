@@ -5,9 +5,12 @@ app:
 easy_admin_bundle:
     resource: "@EasyAdminBundle/Controller/"
     type:     annotation
-    prefix:   /admin_2
+    prefix:   /easy-admin
 
 api:
     type:     rest
     resource: AppBundle\Controller\APIController
     prefix: api/
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"

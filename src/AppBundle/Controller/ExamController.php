@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 /**
  * Class ExamController
  * @package AppBundle\Controller
- * @Route("/exam")
+ * @Route("/admin/exam")
  */
 class ExamController extends Controller
 {

@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 /**
  * Class AdminController
  * @package AppBundle\Controller
- * @Route("/admin")
+ * @Route("/admin/admin")
  */
 class AdminController extends Controller
 {

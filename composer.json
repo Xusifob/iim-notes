@@ -20,7 +20,10 @@
         "incenteev/composer-parameter-handler": "~2.0",
         "javiereguiluz/easyadmin-bundle": "^1.9",
         "jms/serializer-bundle": "^1.1",
-        "friendsofsymfony/rest-bundle": "^1.7"
+        "friendsofsymfony/rest-bundle": "^1.7",
+        "doctrine/doctrine-fixtures-bundle": "^2.3",
+        "phpunit/phpunit": "4.8.*",
+        "friendsofsymfony/user-bundle": "~2.0@dev"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

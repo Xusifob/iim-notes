@@ -1,0 +1,26 @@
+{% extends '::base.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+    <link href="{{ asset('bundles/app/assets/global/plugins/select2/css/select2.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('bundles/app/assets/global/plugins/select2/css/select2-bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
+    <!-- END PAGE LEVEL PLUGINS -->
+    <!-- BEGIN THEME GLOBAL STYLES -->
+    <link href="{{ asset('bundles/app/assets/global/css/components.min.css')}}" rel="stylesheet" id="style_components" type="text/css" />
+    <link href="{{ asset('bundles/app/assets/global/css/plugins.min.css')}}" rel="stylesheet" type="text/css" />
+    <!-- END THEME GLOBAL STYLES -->
+    <!-- BEGIN PAGE LEVEL STYLES -->
+    <link href="{{ asset('bundles/app/assets/pages/css/login.min.css')}}" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block title %}Ajouter un administrateur{% endblock %}
+{% block bodyClass %}login{% endblock %}
+
+{% block body %}
+{% trans_default_domain 'FOSUserBundle' %}
+
+    <p>{{ 'registration.confirmed'|trans({'%username%': user.username}) }}</p>
+    {% if targetUrl %}
+        <p><a href="{{ targetUrl }}">{{ 'registration.back'|trans }}</a></p>
+    {% endif %}
+{% endblock %}

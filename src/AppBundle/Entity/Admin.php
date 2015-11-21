@@ -25,6 +25,12 @@ class Admin extends BaseUser
 
 
     /**
+     * @ORM\Column(type="string", unique=true)
+     *
+     */
+    private $apiToken = 'ApiToken';
+
+    /**
      * @var string
      *
      * @ORM\Column(name="firstName", type="string", length=255,nullable=true)
@@ -44,6 +50,7 @@ class Admin extends BaseUser
     {
         parent::__construct();
         $this->addRole('ROLE_ADMIN');
+        $this->setEnabled(true);
     }
 
     /**

@@ -9,6 +9,7 @@
 namespace AppBundle\Controller;
 
 use FOS\RestBundle\Controller\FOSRestController;
+use Symfony\Component\BrowserKit\Request;
 
 /**
  * Class APIController

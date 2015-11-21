@@ -14,6 +14,14 @@ security:
             pattern: ^/(_(profiler|wdt|error)|css|images|js)/
             security: false
 
+
+        api:
+            pattern: ^/api
+            knpu_guard:
+                authenticators:
+                  - app.api_token_authenticator
+                entry_point: app.api_token_authenticator
+
         main:
             pattern: ^/
             form_login:

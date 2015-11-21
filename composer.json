@@ -23,7 +23,8 @@
         "friendsofsymfony/rest-bundle": "^1.7",
         "doctrine/doctrine-fixtures-bundle": "^2.3",
         "phpunit/phpunit": "4.8.*",
-        "friendsofsymfony/user-bundle": "~2.0@dev"
+        "friendsofsymfony/user-bundle": "~2.0@dev",
+        "knpuniversity/guard-bundle": "~0.1@dev"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

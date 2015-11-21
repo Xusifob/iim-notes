@@ -47,10 +47,12 @@ class Grade
 
     /**
      * @param Exam $exam
+     * @return $this
      */
     public function setExam($exam)
     {
         $this->exam = $exam;
+        return $this;
     }
 
 
@@ -72,10 +74,12 @@ class Grade
 
     /**
      * @param Student $student
+     * @return $this
      */
     public function setStudent($student)
     {
         $this->student = $student;
+        return $this;
     }
 
 

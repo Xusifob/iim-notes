@@ -6,11 +6,12 @@ use AppBundle\Entity\Admin;
 use AppBundle\Entity\Exam;
 use AppBundle\Entity\Grade;
 use Doctrine\Common\DataFixtures\AbstractFixture;
+use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerAwareTrait;
 
-class LoadGradeData extends AbstractFixture  implements ContainerAwareInterface
+class LoadGradeData extends AbstractFixture  implements OrderedFixtureInterface
 {
     use ContainerAwareTrait;
 
@@ -20,14 +21,34 @@ class LoadGradeData extends AbstractFixture  implements ContainerAwareInterface
     public function load(ObjectManager $manager)
     {
 
+
+        /** @var Exam $exam */
+        $exam = $this->getReference('exam');
+        $student = $this->getReference('student');
+
         // Je créé les objets que je veux pour mes tests
-        $exam = new Grade();
-        $exam->setGrade('Super Admin');
-        $exam->setContent('Youhou je suis un exam');
+        $grade = new Grade();
+        $grade
+            ->setExam($exam)
+            ->setStudent($student)
+            ->setGrade('Nom du grade')
+        ;
 
         // Je sauvegarde en DB
-        $manager->persist($exam);
+        $manager->persist($grade);
         $manager->flush();
 
     }
+
+    /**
+     * @return int
+     */
+    public function getOrder()
+    {
+        // the order in which fixtures will be loaded
+        // the lower the number, the sooner that this fixture is loaded
+        return 3;
+    }
+
+
 }

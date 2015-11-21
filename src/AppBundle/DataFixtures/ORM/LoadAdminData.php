@@ -8,6 +8,12 @@ use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerAwareTrait;
 
+/**
+ * Class LoadAdminData
+ * @package AppBundle\DataFixtures\ORM
+ *
+ * @extends ContainerAwareInterface : To be allowed to load $this->container
+ */
 class LoadAdminData extends AbstractFixture  implements ContainerAwareInterface
 {
     use ContainerAwareTrait;
@@ -27,5 +33,15 @@ class LoadAdminData extends AbstractFixture  implements ContainerAwareInterface
 
         $userManager->updateUser($admin);
 
+    }
+
+    /**
+     * @return int
+     */
+    public function getOrder()
+    {
+        // the order in which fixtures will be loaded
+        // the lower the number, the sooner that this fixture is loaded
+        return 4;
     }
 }

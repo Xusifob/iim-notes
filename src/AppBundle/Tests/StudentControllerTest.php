@@ -36,40 +36,6 @@ class StudentControllerTest extends WebTestCase
 
 
     /**
-     * Test connexion admin
-     */
-    public function test_it_connexion_admin(){
-
-        $client = $this->login();
-
-        $crawler = $client->request('GET', '/admin/student/');
-
-
-        // I look if I can go on this page
-        $this->assertContains('Students', $client->getResponse()->getContent());
-
-    }
-
-
-    /**
-     * Test if i'm still redirected when I am not connected
-     */
-    public function test_it_redirect_if_not_connected_admin(){
-
-        $client = static::createClient();
-
-        $client->request('GET', '/admin/student/');
-
-
-        // If there is a redirection, I follow it
-        $crawler = $client->followRedirect();
-
-        // I look if I can go on this page
-        $this->assertContains('Login', $client->getResponse()->getContent());
-
-    }
-
-    /**
      * Test list student display
      */
     public function test_it_lists_students()

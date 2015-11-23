@@ -33,6 +33,16 @@ class APITest extends WebTestCase
 
 
     //TODO Faire la fonction test_api_lists_grades en s'inspirant de test_api_lists_exams
+    public function test_api_lists_grades()
+    {
+        $client = static::createClient([], [
+            'HTTP_X-TOKEN'       => 'apiToken',
+        ]);
 
+        $crawler = $client->request('GET', '/api/grades');
+
+        $this->assertContains('Nom du grade', $client->getResponse()->getContent());
+
+    }
 
 }

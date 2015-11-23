@@ -4,7 +4,7 @@ namespace AppBundle\Tests;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class StudentsControllerTest extends WebTestCase
+class ExamsControllerTest extends WebTestCase
 {
 
 
@@ -36,32 +36,32 @@ class StudentsControllerTest extends WebTestCase
 
 
     /**
-     * Test list student display
+     * Test list exam display
      */
-    public function test_it_lists_students()
+    public function test_it_lists_exams()
     {
 
         // Login the client
         $client =  $this->login();
 
 
-        $crawler = $client->request('GET', '/admin/student/');
+        $crawler = $client->request('GET', '/admin/exam/');
 
         // I look if there is "Jean  Dupont" displating on the page
-        $this->assertContains('Jean  Dupont', $client->getResponse()->getContent());
+        $this->assertContains('List All Exams', $client->getResponse()->getContent());
     }
 
     /**
-     * Test add a student
+     * Test add a exam
      */
-    public function test_it_add_students()
+    public function test_it_add_exams()
     {
 
         // Login the client
         $client =  $this->login();
 
 
-        $crawler = $client->request('GET', '/admin/student/add');
+        $crawler = $client->request('GET', '/admin/exam/add');
 
         /**
          * Get the form by the button's Label
@@ -71,9 +71,8 @@ class StudentsControllerTest extends WebTestCase
 
 
         // Fill up all fields
-        $form['appbundle_student[email]'] = 'Louis@lefragile@gmail.com';
-        $form['appbundle_student[firstName]'] = 'Louis';
-        $form['appbundle_student[lastName]'] = 'Le Fragile';
+        $form['appbundle_exam[name]'] = 'Super Exam';
+        $form['appbundle_exam[content]'] = 'Steeve';
 
         // Submit the form
         $client->submit($form);
@@ -81,19 +80,20 @@ class StudentsControllerTest extends WebTestCase
         $crawler = $client->followRedirect();
 
         // I look if there is "Jean  Dupont" displating on the page
-        $this->assertContains('Louis  Le Fragile', $client->getResponse()->getContent());
+        $this->assertContains('List All Exams', $client->getResponse()->getContent());
     }
 
     /**
-     * Test delete a student
+     * Test delete a exam
      */
-    /*public function test_it_delete_students()
+    /*public function test_it_delete_exams()
     {
 
         // Login the client
         $client =  $this->login();
 
-        $client->request('GET', '/admin/student/delete/2');
-        $this->assertContains('Nom du grade', $client->getResponse()->getContent());
+        $crawler = $client->request('GET', '/admin/exam/add/delete/2');
+
+        $this->assertContains('List All Exams', $client->getResponse()->getContent());
     }*/
 }

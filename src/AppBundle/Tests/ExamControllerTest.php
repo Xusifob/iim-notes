@@ -83,16 +83,23 @@ class ExamsControllerTest extends WebTestCase
         $this->assertContains('List All Exams', $client->getResponse()->getContent());
     }
 
-    /**
+    /*
      * Test delete a exam
-     */
-    /*public function test_it_delete_exams()
+     */    
+    /*
+    public function test_it_delete_exams()
     {
 
         // Login the client
         $client =  $this->login();
 
-        $crawler = $client->request('GET', '/admin/exam/add/delete/2');
+        $crawler = $client->request('GET', '/admin/exam');
+
+        $form = $crawler->selectButton('Delete')->form();
+
+        $client->submit($form);
+
+        $crawler = $client->followRedirect();
 
         $this->assertContains('List All Exams', $client->getResponse()->getContent());
     }*/

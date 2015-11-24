@@ -96,4 +96,22 @@ class StudentsControllerTest extends WebTestCase
         $client->request('GET', '/admin/student/delete/2');
         $this->assertContains('Nom du grade', $client->getResponse()->getContent());
     }*/
+    /*
+    public function test_it_delete_students()
+    {
+
+        // Login the client
+        $client =  $this->login();
+
+        $crawler = $client->request('GET', '/admin/student/delete/'.$id);
+
+        $form = $crawler->selectLink('Delete')->form();
+
+        $client->submit($form);
+
+        $crawler = $client->followRedirect();
+
+        $this->assertContains('List All Students', $client->getResponse()->getContent());
+    }
+    */
 }

@@ -95,4 +95,22 @@ class GradeControllerTest extends WebTestCase
         $client->request('GET', '/admin/grade/add/delete/2');
         $this->assertContains('Nom du grade', $client->getResponse()->getContent());
     }*/
+    /*
+    public function test_it_delete_grades()
+    {
+
+        // Login the client
+        $client =  $this->login();
+
+        $crawler = $client->request('GET', '/admin/grade/delete/'.$id);
+
+        $form = $crawler->selectLink('Delete')->form();
+
+        $client->submit($form);
+
+        $crawler = $client->followRedirect();
+
+        $this->assertContains('List All Grades', $client->getResponse()->getContent());
+    }
+    */
 }
